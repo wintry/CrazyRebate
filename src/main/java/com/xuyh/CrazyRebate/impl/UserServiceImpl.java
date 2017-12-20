@@ -6,6 +6,7 @@ import com.xuyh.CrazyRebate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 @Service
 public class UserServiceImpl  implements UserService {
@@ -42,5 +43,35 @@ public class UserServiceImpl  implements UserService {
     @Override
     public int delete(Integer id) {
         return userMapper.delete(id);
+    }
+
+
+
+    @Override
+    public User updateToken(User user) {
+        userMapper.updateToken(user);
+        return userMapper.getUserById(user.getId());
+    }
+
+    @Override
+    public User getUserIdByToken(String token) {
+        return userMapper.getUserIdByToken(token);
+    }
+
+    @Override
+    public User OAuth(HttpServletRequest request){
+        String token = request.getHeader("token");
+        User user = getUserIdByToken(token);
+        if(user!=null){
+            return user;
+        }
+        else {
+            return  null;
+        }
+    }
+
+    @Override
+    public int updateImg(User user) {
+        return userMapper.updateImg(user);
     }
 }

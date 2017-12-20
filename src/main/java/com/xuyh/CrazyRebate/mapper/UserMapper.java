@@ -24,4 +24,13 @@ public interface UserMapper {
 
     @Delete("DELETE from user where id = #{id} ")
     public int delete(Integer id);
+
+
+
+    @Update("UPDATE user SET token = #{user.token} WHERE id = #{user.id}")
+    public int updateToken(@Param("user") User user);
+    @Update("UPDATE user SET img = #{user.img} WHERE id = #{user.id}")
+    public int updateImg(@Param("user") User user);
+    @Select("SELECT * FROM user WHERE token = #{token}")
+    public User getUserIdByToken(String token);
 }

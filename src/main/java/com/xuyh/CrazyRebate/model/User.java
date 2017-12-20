@@ -7,6 +7,15 @@ public class User {
     private String pwd;
     private String phone;
     private String img;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public Integer getId() {
         return id;
