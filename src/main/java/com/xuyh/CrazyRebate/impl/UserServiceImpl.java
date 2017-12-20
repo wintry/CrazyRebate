@@ -1,4 +1,4 @@
-package com.xuyh.CrazyRebate.service.impl;
+package com.xuyh.CrazyRebate.impl;
 
 import com.xuyh.CrazyRebate.model.User;
 import com.xuyh.CrazyRebate.mapper.UserMapper;
@@ -17,6 +17,11 @@ public class UserServiceImpl  implements UserService {
     @Override
     public User getUserById(Integer id) {
         return userMapper.getUserById(id);
+    }
+
+    @Override
+    public User getUserByUserName(String userName) {
+        return userMapper.getUserByUserName(userName);
     }
 
     @Override

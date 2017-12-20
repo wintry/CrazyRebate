@@ -10,6 +10,8 @@ public interface UserService {
 
     User getUserById(Integer id);
 
+    public User getUserByUserName(String userName);
+
     public List<User> getUserList();
 
     public int add(User user);

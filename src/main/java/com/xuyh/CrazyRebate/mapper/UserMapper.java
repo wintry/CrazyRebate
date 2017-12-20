@@ -10,10 +10,13 @@ public interface UserMapper {
     @Select("SELECT * FROM user WHERE id = #{id}")
     User getUserById(Integer id);
 
+    @Select("SELECT * FROM user WHERE userName = #{userName}")
+    User getUserByUserName(String username);
+
     @Select("SELECT * FROM user")
     public List<User> getUserList();
 
-    @Insert("insert into user(username, age, ctm) values(#{username}, #{age}, now())")
+    @Insert("insert into user(userName, pwd, phone) values(#{userName}, #{pwd}, #{phone})")
     public int add(User user);
 
     @Update("UPDATE user SET username = #{user.username} , age = #{user.age} WHERE id = #{id}")
