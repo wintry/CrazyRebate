@@ -74,4 +74,7 @@ public class UserServiceImpl  implements UserService {
     public int updateImg(User user) {
         return userMapper.updateImg(user);
     }
+
+
+
 }

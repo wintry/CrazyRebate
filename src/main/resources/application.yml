@@ -1,9 +1,10 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/crazy?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/crazy?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
     username: root
     password:
 mybatis:
   type-aliases-package: com.xuyh.CrazyRebate.model
-  mapUnderscoreToCamelCase: true
+  configuration:
+    mapUnderscoreToCamelCase: true
