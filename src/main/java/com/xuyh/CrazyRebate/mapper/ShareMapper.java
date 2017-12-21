@@ -11,4 +11,8 @@ public interface ShareMapper {
     public int add(Share share);
     @Select("SELECT * FROM share WHERE id = #{id}")
     Share getShareById(int id);
+    @Update("UPDATE share SET title = #{share.title},content = #{share.content},url=#{share.url},img=#{share.img},price=#{share.price} WHERE id = #{share.id}")
+    public int updateShare(@Param("share") Share share);
+    @Delete("DELETE from share where id = #{id} ")
+    public int delShare(Integer id);
 }

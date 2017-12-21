@@ -8,4 +8,8 @@ public interface ShareService {
 
     public  Share getShareById(int shareId);
 
+    public  int updateShare(Share share);
+
+    public  int delShare(int id);
+
 }

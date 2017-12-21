@@ -117,8 +117,61 @@ public class ShareController {
     }
 
 
+    /**
+     * 修改推广商品信息
+     * @param share
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "updateShare", method = RequestMethod.POST)
+    public ResponseEntity<JsonResult> eidtShare(@RequestBody Share share,HttpServletRequest request) {
+        JsonResult r = new JsonResult();
+        User user= userService.OAuth(request);
+        if(user==null){
+            r.setStatus("003");
+            r.setResult("no permission");
+            return ResponseEntity.ok(r);
+        }
+
+        Share share1 = shareService.getShareById(share.getId());
+
+        if(share1.getUserId()!=user.getId()){
+            r.setStatus("002");
+            r.setResult("not your share");
+            return ResponseEntity.ok(r);
+        }
+        share.setUserId(user.getId());
+
+        shareService.updateShare(share);
+        r.setStatus("001");
+        r.setResult("succeed");
+        return ResponseEntity.ok(r);
+    }
 
 
+    @RequestMapping(value = "delShare/{id}", method = RequestMethod.POST)
+    public ResponseEntity<JsonResult> delShare(@PathVariable(value = "id") int shareId,HttpServletRequest request) {
+        JsonResult r = new JsonResult();
+        User user= userService.OAuth(request);
+        if(user==null){
+            r.setStatus("003");
+            r.setResult("no permission");
+            return ResponseEntity.ok(r);
+        }
+        Share share = shareService.getShareById(shareId);
+
+        if(share.getUserId()!=user.getId()){
+            r.setStatus("002");
+            r.setResult("not your share");
+            return ResponseEntity.ok(r);
+        }
+
+        shareService.delShare(shareId);
+
+        r.setStatus("001");
+        r.setResult("succeed");
+        return ResponseEntity.ok(r);
+    }
 
 
 

@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface UserLookMapper {
 
@@ -16,5 +18,7 @@ public interface UserLookMapper {
     @Insert("insert into user_look(user_id, share_id,create_time) values(#{userId}, #{shareId}, #{createTime})")
     int add(UserLook userLook);
 
+    @Select("SELECT * FROM user_look WHERE user_id = #{userId}")
+    List<UserLook> getList(Integer userId);
 
 }

@@ -20,4 +20,14 @@ public class ShareServiceImpl implements ShareService {
     public  Share getShareById(int shareId){
         return shareMapper.getShareById(shareId);
     }
+
+    @Override
+    public int updateShare(Share share) {
+        return shareMapper.updateShare(share);
+    }
+
+    @Override
+    public int delShare(int id) {
+        return shareMapper.delShare(id);
+    }
 }

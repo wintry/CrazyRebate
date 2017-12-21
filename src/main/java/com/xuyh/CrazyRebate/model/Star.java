@@ -3,8 +3,8 @@ package com.xuyh.CrazyRebate.model;
 public class Star {
     private int  id;
     private int userId;
-    private int share;
-    private int status;
+    private int shareId;
+
     private String createTime;
 
     public int getId() {
@@ -23,20 +23,12 @@ public class Star {
         this.userId = userId;
     }
 
-    public int getShare() {
-        return share;
+    public int getShareId() {
+        return shareId;
     }
 
-    public void setShare(int share) {
-        this.share = share;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
+    public void setShareId(int shareId) {
+        this.shareId = shareId;
     }
 
     public String getCreateTime() {

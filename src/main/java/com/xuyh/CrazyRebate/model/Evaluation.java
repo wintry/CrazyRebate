@@ -8,7 +8,7 @@ public class Evaluation {
     private int score;
     private String content;
     private String img;
-    private String createTime;
+
 
     public int getId() {
         return id;
@@ -58,11 +58,5 @@ public class Evaluation {
         this.img = img;
     }
 
-    public String getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
 }

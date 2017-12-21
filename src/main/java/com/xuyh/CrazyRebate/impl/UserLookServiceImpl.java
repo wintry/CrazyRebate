@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserLookServiceImpl implements UserLookService {
@@ -30,5 +31,10 @@ public class UserLookServiceImpl implements UserLookService {
         userLook.setShareId(shareId);
         userLook.setCreateTime(dateFormat.format( now ));
         return userLookMapper.add(userLook);
+    }
+
+    @Override
+    public List<UserLook> getList(int userId) {
+        return userLookMapper.getList(userId);
     }
 }
