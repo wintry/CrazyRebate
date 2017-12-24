@@ -351,3 +351,214 @@ json请求
     "result": "succeed"
 }
 ```
+
+
+获取个人资料
+user/getUser          get
+带token
+返回示例
+{
+    "status": "001",
+    "result": {
+        "id": 5,
+        "userName": "xuyh",
+        "pwd": null,
+        "phone": "18758290214",
+        "img": "sad",
+        "token": "fdbdec83-45dd-427f-9ac1-c4f1b0a798ee"
+    }
+}
+
+删除收藏
+star/delStar/{starId}    post
+带token
+返回
+{
+    "status": "001",
+    "result": "succeed"
+}
+
+
+获取收藏
+star/getStar           get
+带token
+返回
+{
+    "status": "001",
+    "result": [
+        {
+            "id": 3,
+            "userId": 5,
+            "title": "淘宝爆款",
+            "content": "asdasd",
+            "url": "www.taobao.com",
+            "img": "asdasda",
+            "price": "15.50",
+            "createTime": "2017/12/21 14:07:22"
+        },
+        {
+            "id": 4,
+            "userId": 5,
+            "title": "淘宝爆款",
+            "content": "asdasd",
+            "url": "www.taobao.com",
+            "img": "asdasda",
+            "price": "15.50",
+            "createTime": "2017/12/21 14:13:29"
+        }
+        
+    ]
+}
+
+
+获取自己已查看的购买链接
+getUrls    get
+返回
+{
+    "status": "003",
+    "result": [
+        {
+            "id": 5,
+            "userId": 5,
+            "title": "淘宝爆款",
+            "content": "asdasd",
+            "url": "www.taobao.com",
+            "img": "asdasda",
+            "price": "15.50",
+            "createTime": "2017/12/21 14:13:34"
+        },
+        {
+                    "id": 5,
+                    "userId": 5,
+                    "title": "淘宝爆款",
+                    "content": "asdasd",
+                    "url": "www.taobao.com",
+                    "img": "asdasda",
+                    "price": "15.50",
+                    "createTime": "2017/12/21 14:13:34"
+                }
+    ]
+}
+
+
+评价
+addEvaluation  post
+提交：
+{
+	"shareId":6,
+	"score":4,
+	"content":"好评",
+	"img":"www.abidas.sdasd"
+}
+
+返回：
+{
+    "status": "001",
+    "result": "succeed"
+}
+
+
+获取评价列表
+getEvaluations/{shareId}   get
+返回
+{
+    "status": "001",
+    "result": [
+        {
+            "id": 1,
+            "shareId": 6,
+            "userId": 5,
+            "score": 4,
+            "content": "好评",
+            "img": "www.abidas.sdasd"
+        },
+        {
+            "id": 2,
+            "shareId": 6,
+            "userId": 5,
+            "score": 4,
+            "content": "好评",
+            "img": "www.abidas.sdasd"
+        },
+        {
+            "id": 3,
+            "shareId": 6,
+            "userId": 5,
+            "score": 4,
+            "content": "好评",
+            "img": "www.abidas.sdasd"
+        }
+    ]
+}
+
+
+搜索
+share/seShare/{keyword}
+post
+返回
+{
+    "status": "001",
+    "result": [
+        {
+            "id": 3,
+            "userId": 5,
+            "title": "淘宝爆款",
+            "content": "asdasd",
+            "url": "www.taobao.com",
+            "img": "asdasda",
+            "price": "15.50",
+            "createTime": "2017/12/21 14:07:22"
+        },
+        {
+            "id": 4,
+            "userId": 5,
+            "title": "淘宝爆款",
+            "content": "asdasd",
+            "url": "www.taobao.com",
+            "img": "asdasda",
+            "price": "15.50",
+            "createTime": "2017/12/21 14:13:29"
+        },
+        {
+            "id": 5,
+            "userId": 5,
+            "title": "淘宝爆款",
+            "content": "asdasd",
+            "url": "www.taobao.com",
+            "img": "asdasda",
+            "price": "15.50",
+            "createTime": "2017/12/21 14:13:34"
+        },
+        {
+            "id": 7,
+            "userId": 5,
+            "title": "淘宝爆款",
+            "content": "asdasd",
+            "url": "www.taobao.com",
+            "img": "asdasda",
+            "price": "15.50",
+            "createTime": "2017/12/21 14:13:38"
+        },
+        {
+            "id": 8,
+            "userId": 5,
+            "title": "淘宝爆款",
+            "content": "asdasd",
+            "url": "www.taobao.com",
+            "img": "asdasda",
+            "price": "15.50",
+            "createTime": "2017/12/21 14:13:39"
+        },
+        {
+            "id": 9,
+            "userId": 5,
+            "title": "淘宝爆款",
+            "content": "asdasd",
+            "url": "www.taobao.com",
+            "img": "asdasda",
+            "price": "15.50",
+            "createTime": "2017/12/21 14:13:40"
+        }
+    ]
+}
+

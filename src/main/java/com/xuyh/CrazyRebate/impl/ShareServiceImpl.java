@@ -6,6 +6,8 @@ import com.xuyh.CrazyRebate.service.ShareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ShareServiceImpl implements ShareService {
 
@@ -29,5 +31,11 @@ public class ShareServiceImpl implements ShareService {
     @Override
     public int delShare(int id) {
         return shareMapper.delShare(id);
+    }
+
+
+    @Override
+    public List<Share> seShare(String s) {
+        return shareMapper.seShare(s);
     }
 }

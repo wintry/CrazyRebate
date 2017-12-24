@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "share")
+@CrossOrigin
 public class ShareController {
 
     @Autowired
@@ -170,6 +172,21 @@ public class ShareController {
 
         r.setStatus("001");
         r.setResult("succeed");
+        return ResponseEntity.ok(r);
+    }
+
+
+
+
+
+    @RequestMapping(value = "seShare/{key}", method = RequestMethod.POST)
+    public ResponseEntity<JsonResult> delShare(@PathVariable(value = "key") String kry) {
+
+        JsonResult r = new JsonResult();
+        kry="%"+kry+"%";
+        List<Share> shareList = shareService.seShare(kry);
+        r.setStatus("001");
+        r.setResult(shareList);
         return ResponseEntity.ok(r);
     }
 

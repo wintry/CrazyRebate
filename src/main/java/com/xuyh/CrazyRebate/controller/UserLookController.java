@@ -6,16 +6,14 @@ import com.xuyh.CrazyRebate.service.UserLookService;
 import com.xuyh.CrazyRebate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class UserLookController {
     @Autowired
     private UserService userService;
@@ -24,7 +22,7 @@ public class UserLookController {
     @Autowired
     private ShareService shareService;
 
-    @RequestMapping(value = "getUrls/", method = RequestMethod.GET)
+    @RequestMapping(value = "getUrls", method = RequestMethod.GET)
     public ResponseEntity<JsonResult> getUserLook ( HttpServletRequest request) {
         JsonResult r = new JsonResult();
         User user= userService.OAuth(request);

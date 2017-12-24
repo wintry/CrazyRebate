@@ -4,6 +4,8 @@ import com.xuyh.CrazyRebate.model.Share;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface ShareMapper {
 
@@ -15,4 +17,6 @@ public interface ShareMapper {
     public int updateShare(@Param("share") Share share);
     @Delete("DELETE from share where id = #{id} ")
     public int delShare(Integer id);
+    @Select("SELECT * FROM share WHERE title like #{s}")
+    public List<Share> seShare(String s);
 }

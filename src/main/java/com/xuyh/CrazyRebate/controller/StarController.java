@@ -19,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "star")
+@CrossOrigin
 public class StarController {
     @Autowired
     private StarService starService;

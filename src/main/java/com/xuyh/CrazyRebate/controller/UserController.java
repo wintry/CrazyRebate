@@ -24,18 +24,21 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "getuser/{id}", method = RequestMethod.GET)
-    public ResponseEntity<JsonResult> getUser(@PathVariable(value = "id") Integer id) {
+    @RequestMapping(value = "getUser", method = RequestMethod.GET)
+    public ResponseEntity<JsonResult> getUser(HttpServletRequest request) {
         JsonResult r = new JsonResult();
-        try {
-            User user = userService.getUserById(id);
-            r.setResult(user);
-            r.setStatus("ok");
-        } catch (Exception e) {
-            r.setResult(e.getClass().getName() + ":" + e.getMessage());
-            r.setStatus("error");
-            e.printStackTrace();
+
+
+        User user= userService.OAuth(request);
+        if(user==null){
+            r.setStatus("003");
+            r.setResult("no permission");
+            return ResponseEntity.ok(r);
+
         }
+        user.setPwd(null);
+        r.setStatus("001");
+        r.setResult(user);
         return ResponseEntity.ok(r);
     }
 
